@@ -1,0 +1,126 @@
+basePath: /api/v1
+definitions:
+  form.Registration:
+    properties:
+      Address:
+        type: string
+      AddressID:
+        type: integer
+      ConfirmPassword:
+        type: string
+      CountryID:
+        type: integer
+      CountryName:
+        type: string
+      DefaultAddressID:
+        type: integer
+      DefaultPhoneID:
+        type: integer
+      EmailAddress:
+        type: string
+      EmailID:
+        type: integer
+      Err:
+        type: string
+      FirstName:
+        type: string
+      LastName:
+        type: string
+      LoginID:
+        type: integer
+      LoginPassword:
+        type: string
+      LoginTypeDesc:
+        type: string
+      LoginTypeID:
+        type: integer
+      MiddleName:
+        type: string
+      NumberinInterForm:
+        type: integer
+      Password:
+        type: string
+      PhoneNoID:
+        type: integer
+      PhoneNoTypeDesc:
+        type: string
+      PhoneNoTypeID:
+        type: integer
+      PhoneNumber:
+        description: PhoneNumber       string `json:"PhoneNumber" form:"PhoneNumber"
+          query:"PhoneNumber" validate:"required"`
+        type: string
+      PhonePrefix:
+        type: integer
+      PostCode:
+        type: integer
+      RequestKey:
+        type: string
+      State:
+        type: string
+      Town:
+        type: string
+      UserID:
+        type: integer
+      UserName:
+        type: string
+      UserNameVerified:
+        type: integer
+    required:
+    - ConfirmPassword
+    - EmailAddress
+    - FirstName
+    - Password
+    type: object
+host: localhost:3000
+info:
+  contact: {}
+  description: This is a Repair Management Application
+  title: RMS Application
+  version: "1.0"
+paths:
+  /register:
+    post:
+      consumes:
+      - application/json
+      description: Create a new todo item
+      parameters:
+      - description: New User
+        in: body
+        name: RMS
+        required: true
+        schema:
+          $ref: '#/definitions/form.Registration'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/form.Registration'
+      summary: Create a RMS
+      tags:
+      - RMS
+  /registerbyemail:
+    post:
+      consumes:
+      - application/json
+      description: Create a new User by Email
+      parameters:
+      - description: New User
+        in: body
+        name: RMS
+        required: true
+        schema:
+          $ref: '#/definitions/form.Registration'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/form.Registration'
+      summary: Create a RMS
+      tags:
+      - RMS
+swagger: "2.0"
